@@ -1,0 +1,17 @@
+server:
+  port: 9090
+spring:
+  datasource:
+    url: jdbc:postgresql://stats-db:5432/stats_service
+    username: stats-user
+    password: stats-password
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+      schema-location: classpath:schema.sql
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
