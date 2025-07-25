@@ -1,3 +1,5 @@
+package dto;
+
 import java.time.LocalDateTime;
 
 public class HitDto {
