@@ -1,14 +1,5 @@
-FROM maven:3.9.7-eclipse-temurin-21 AS build
+FROM amazoncorretto:21.0.6-al2023-headless
 WORKDIR /app
-
-COPY . .
-
-RUN mvn -B clean package -pl stats-service/stats-server -am -DskipTests
-
-FROM eclipse-temurin:21-jre
-WORKDIR /app
-
-COPY --from=build /app/stats-service/stats-server/target/stats-server-0.0.1-SNAPSHOT.jar app.jar
-
+COPY target/stats-server-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","/app/app.jar"]
 EXPOSE 9090
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]

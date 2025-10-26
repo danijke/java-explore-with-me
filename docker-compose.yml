@@ -2,28 +2,32 @@ services:
   stats-db:
     image: postgres:16.1
     environment:
-      POSTGRES_DB: stats_service
-      POSTGRES_USER: stats_user
-      POSTGRES_PASSWORD: stats_password
-    ports:
-      - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -q -d stats_service -U stats_user"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
+      POSTGRES_DB: stats-db
+      POSTGRES_USER: stats-user
+      POSTGRES_PASSWORD: stats-root
+    ports: ["5432:5432"]
+
+  main-db:
+      image: postgres:16.1
+      environment:
+        POSTGRES_DB: main-db
+        POSTGRES_USER: main-user
+        POSTGRES_PASSWORD: main-root
+      ports: [ "5434:5432" ]
 
   stats-server:
-    build:
-      context: .
-      dockerfile: stats-service/stats-server/Dockerfile
-    depends_on:
-      stats-db:
-        condition: service_healthy
+    build: ./stats-service/stats-server
+    depends_on: [stats-db]
+    ports: [ "9090:9090" ]
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://stats-db:5432/stats_service
-      SPRING_DATASOURCE_USERNAME: stats_user
-      SPRING_DATASOURCE_PASSWORD: stats_password
-      SERVER_PORT: 9090
-    ports:
-      - "9090:9090"
+      SPRING_DATASOURCE_URL: jdbc:postgresql://stats-db:5432/stats-db
+      SPRING_DATASOURCE_USERNAME: stats-user
+      SPRING_DATASOURCE_PASSWORD: stats-root
+
+  main-service:
+    build: ./main-service
+    depends_on: [main-db, stats-server]
+    ports: ["8080:8080"]
+
+volumes:
+  stats-db-data:
