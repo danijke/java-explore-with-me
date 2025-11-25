@@ -1,6 +1,5 @@
 package ru.practicum.ewm.statsservice.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +7,7 @@ import ru.practicum.ewm.statsdto.*;
 import ru.practicum.ewm.statsservice.dto.DateTimeParser;
 import ru.practicum.ewm.statsservice.service.StatsService;
 
+import java.time.*;
 import java.util.*;
 
 @RestController
@@ -17,7 +17,7 @@ public class StatsController {
 
     @PostMapping("/hit")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveHit(@Valid @RequestBody HitDto hitDto) {
+    public void saveHit(@RequestBody HitDto hitDto) {
         service.saveHit(hitDto);
     }
 

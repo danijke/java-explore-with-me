@@ -6,7 +6,6 @@ spring:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/stats-db}
     username: ${SPRING_DATASOURCE_USERNAME:stats-user}
     password: ${SPRING_DATASOURCE_PASSWORD:stats-root}
-    driver-class-name: org.postgresql.Driver
   sql:
     init:
       mode: always

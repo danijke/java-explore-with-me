@@ -4,7 +4,7 @@ package ru.practicum.ewm.client;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
-import ru.practicum.ewm.dto.*;
+import ru.practicum.ewm.statsdto.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
