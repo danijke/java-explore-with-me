@@ -1,10 +1,11 @@
 package ru.practicum.ewm.statsservice.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.ewm.statsservice.exception.BadRequestException;
-import ru.practicum.ewm.statsservice.mapper.StatsMapper;
+import ru.practicum.ewm.statsservice.mapper.HitMapper;
 import org.springframework.stereotype.Service;
-import ru.practicum.ewm.statsservice.repository.StatsRepository;
+import ru.practicum.ewm.statsservice.repository.HitRepository;
 import ru.practicum.ewm.statsdto.*;
 
 import java.time.LocalDateTime;
@@ -12,11 +13,13 @@ import java.util.*;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class StatsService {
-    private final StatsRepository repository;
+    private final HitRepository repository;
 
+    @Transactional
     public void saveHit(HitDto hitDto) {
-        repository.save(StatsMapper.toHit(hitDto));
+        repository.save(HitMapper.toHit(hitDto));
     }
 
     public List<ViewStatsDto> getStats(LocalDateTime start, LocalDateTime end, List<String> uris, boolean unique) {

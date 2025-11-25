@@ -6,7 +6,9 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Value
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class HitDto {
     @NotBlank
