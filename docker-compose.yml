@@ -15,7 +15,7 @@ services:
 
   stats-server:
     build:
-      context: ./ewm-stats-service/stats-server
+      context: ./stats-service/stats-server
     depends_on:
       stats-db:
         condition: service_healthy
