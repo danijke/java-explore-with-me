@@ -1,0 +1,17 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/stats-db}
+    username: ${SPRING_DATASOURCE_USERNAME:stats-user}
+    password: ${SPRING_DATASOURCE_PASSWORD:stats-root}
+  sql:
+    init:
+      mode: always
+      schema-location: classpath:schema.sql
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
