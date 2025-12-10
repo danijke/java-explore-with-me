@@ -1,4 +1,4 @@
-package ru.practicum.ewm.main.utils;
+package ru.practicum.ewm.main.util;
 
 import org.springframework.data.domain.*;
 

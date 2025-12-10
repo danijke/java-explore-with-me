@@ -9,7 +9,7 @@ import ru.practicum.ewm.main.category.mapper.CategoryMapper;
 import ru.practicum.ewm.main.category.model.Category;
 import ru.practicum.ewm.main.category.repository.CategoryRepository;
 import ru.practicum.ewm.main.exception.*;
-import ru.practicum.ewm.main.utils.PageUtils;
+import ru.practicum.ewm.main.util.PageUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;

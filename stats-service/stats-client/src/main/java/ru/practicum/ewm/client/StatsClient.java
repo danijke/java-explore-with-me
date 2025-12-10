@@ -16,7 +16,7 @@ public class StatsClient {
     private final WebClient webClient;
     private static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    public void sendHit(HitDto hitDto) {
+    public void saveHit(HitDto hitDto) {
         webClient.post()
                 .uri("/hit")
                 .bodyValue(hitDto)
@@ -26,13 +26,13 @@ public class StatsClient {
     }
 
     //на будущее для admin-service
-    public List<ViewStatsDto> getStats(LocalDateTime start, LocalDateTime end, String uri, boolean unique) {
+    public List<ViewStatsDto> getStats(LocalDateTime start, LocalDateTime end, List<String> uris, boolean unique) {
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/stats")
                         .queryParam("start", start.format(DTF))
                         .queryParam("end", end.format(DTF))
-                        .queryParam("uri", uri)
+                        .queryParam("uris", uris)
                         .queryParam("unique", unique)
                         .build())
                 .retrieve()
