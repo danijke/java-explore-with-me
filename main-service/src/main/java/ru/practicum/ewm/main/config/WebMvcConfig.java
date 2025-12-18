@@ -6,7 +6,7 @@ import org.springframework.lang.*;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.*;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import ru.practicum.main.util.OffsetBasedPageRequest;
+import ru.practicum.ewm.main.util.OffsetBasedPageRequest;
 
 import java.util.List;
 

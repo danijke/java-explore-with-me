@@ -2,7 +2,7 @@ package ru.practicum.ewm.main.compilation.dto;
 
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import ru.practicum.main.event.dto.EventShortDto;
+import ru.practicum.ewm.main.event.dto.EventShortDto;
 
 import java.util.List;
 
