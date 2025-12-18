@@ -1,13 +1,13 @@
 package ru.practicum.ewm.main.compilation.mapper;
 
 import lombok.experimental.UtilityClass;
-import ru.practicum.main.category.mapper.CategoryMapper;
+import ru.practicum.ewm.main.category.mapper.CategoryMapper;
 import ru.practicum.ewm.main.compilation.dto.CompilationDto;
 import ru.practicum.ewm.main.compilation.model.Compilation;
-import ru.practicum.main.event.dto.EventShortDto;
-import ru.practicum.main.event.mapper.EventMapper;
-import ru.practicum.main.event.model.Event;
-import ru.practicum.main.user.mapper.UserMapper;
+import ru.practicum.ewm.main.event.dto.EventShortDto;
+import ru.practicum.ewm.main.event.mapper.EventMapper;
+import ru.practicum.ewm.main.event.model.Event;
+import ru.practicum.ewm.main.user.mapper.UserMapper;
 
 import java.time.format.DateTimeFormatter;
 import java.util.*;

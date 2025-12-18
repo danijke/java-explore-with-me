@@ -2,7 +2,7 @@ package ru.practicum.ewm.main.compilation.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import ru.practicum.main.event.model.Event;
+import ru.practicum.ewm.main.event.model.Event;
 
 import java.util.*;
 
@@ -37,8 +37,7 @@ public class Compilation {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Compilation)) return false;
-        Compilation that = (Compilation) o;
+        if (!(o instanceof Compilation that)) return false;
         return Objects.equals(id, that.id);
     }
 

@@ -2,7 +2,7 @@ package ru.practicum.ewm.main.event.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
-import ru.practicum.main.commons.dto.LocationDto;
+import ru.practicum.ewm.main.commons.dto.LocationDto;
 
 @Data
 public class NewEventDto {

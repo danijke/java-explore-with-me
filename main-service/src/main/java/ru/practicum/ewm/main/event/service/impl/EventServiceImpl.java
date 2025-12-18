@@ -1,27 +1,27 @@
 package ru.practicum.ewm.main.event.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.main.category.dto.CategoryDto;
-import ru.practicum.main.category.mapper.CategoryMapper;
-import ru.practicum.main.category.model.Category;
-import ru.practicum.main.category.repository.CategoryRepository;
-import ru.practicum.main.commons.enums.*;
-import ru.practicum.main.commons.model.LocationEmbeddable;
-import ru.practicum.main.event.dto.*;
-import ru.practicum.main.event.mapper.EventMapper;
-import ru.practicum.main.event.model.Event;
-import ru.practicum.main.event.repository.EventRepository;
-import ru.practicum.main.exception.*;
-import ru.practicum.main.request.repository.ParticipationRequestRepository;
-import ru.practicum.main.stats.StatsService;
-import ru.practicum.main.user.dto.UserShortDto;
-import ru.practicum.main.user.mapper.UserMapper;
-import ru.practicum.main.user.model.User;
-import ru.practicum.main.user.repository.UserRepository;
-import ru.practicum.main.util.*;
+import ru.practicum.ewm.main.category.dto.CategoryDto;
+import ru.practicum.ewm.main.category.mapper.CategoryMapper;
+import ru.practicum.ewm.main.category.model.Category;
+import ru.practicum.ewm.main.category.repository.CategoryRepository;
+import ru.practicum.ewm.main.commons.enums.*;
+import ru.practicum.ewm.main.commons.model.LocationEmbeddable;
+import ru.practicum.ewm.main.event.dto.*;
+import ru.practicum.ewm.main.event.mapper.EventMapper;
+import ru.practicum.ewm.main.event.model.Event;
+import ru.practicum.ewm.main.event.repository.EventRepository;
+import ru.practicum.ewm.main.event.service.EventService;
+import ru.practicum.ewm.main.exception.*;
+import ru.practicum.ewm.main.request.repository.ParticipationRequestRepository;
+import ru.practicum.ewm.main.stats.StatsService;
+import ru.practicum.ewm.main.user.dto.UserShortDto;
+import ru.practicum.ewm.main.user.mapper.UserMapper;
+import ru.practicum.ewm.main.user.model.User;
+import ru.practicum.ewm.main.user.repository.UserRepository;
+import ru.practicum.ewm.main.util.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -30,9 +30,8 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 @Transactional
-public class EventServiceImpl implements ru.practicum.main.event.service.EventService {
+public class EventServiceImpl implements EventService {
 
     private final EventRepository eventRepository;
     private final CategoryRepository categoryRepository;

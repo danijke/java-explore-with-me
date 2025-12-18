@@ -1,8 +1,8 @@
 package ru.practicum.ewm.main.request.repository;
 
 import org.springframework.data.jpa.repository.*;
-import ru.practicum.main.commons.enums.RequestStatus;
-import ru.practicum.main.request.model.ParticipationRequest;
+import ru.practicum.ewm.main.commons.enums.RequestStatus;
+import ru.practicum.ewm.main.request.model.ParticipationRequest;
 
 import java.util.*;
 
@@ -15,7 +15,7 @@ public interface ParticipationRequestRepository extends JpaRepository<Participat
             AND pr.event.id IN :eventIds
             GROUP BY pr.event.id
             """)
-    List<Object[]> countConfirmedByEventIds(Set<Long> eventIds, ru.practicum.main.commons.enums.RequestStatus status);
+    List<Object[]> countConfirmedByEventIds(Set<Long> eventIds, RequestStatus status);
 
 
     long countByEventIdAndStatus(Long eventId, RequestStatus status);

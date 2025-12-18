@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import jakarta.persistence.criteria.*;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
-import ru.practicum.main.commons.enums.EventState;
-import ru.practicum.main.event.model.Event;
-import ru.practicum.main.event.repository.EventRepositoryCustom;
+import ru.practicum.ewm.main.commons.enums.EventState;
+import ru.practicum.ewm.main.event.model.Event;
+import ru.practicum.ewm.main.event.repository.EventRepositoryCustom;
 
 import java.time.LocalDateTime;
 import java.util.*;

@@ -1,10 +1,10 @@
 package ru.practicum.ewm.main.compilation.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.practicum.ewm.main.commons.enums.RequestStatus;
 import ru.practicum.ewm.main.compilation.dto.*;
 import ru.practicum.ewm.main.compilation.mapper.CompilationMapper;
 import ru.practicum.ewm.main.compilation.model.Compilation;
@@ -53,7 +53,7 @@ public class CompilationServiceImpl implements CompilationService {
         List<Compilation> single = new ArrayList<>();
         single.add(comp);
         List<CompilationDto> list = mapWithAggregates(single);
-        return list.get(0);
+        return list.getFirst();
     }
 
     @Override
@@ -129,7 +129,7 @@ public class CompilationServiceImpl implements CompilationService {
         Map<Long, Long> views = new HashMap<>();
 
         if (!allEventIds.isEmpty()) {
-            List<Object[]> rows = requestRepository.countConfirmedByEventIds(allEventIds, ru.practicum.main.commons.enums.RequestStatus.CONFIRMED);
+            List<Object[]> rows = requestRepository.countConfirmedByEventIds(allEventIds, RequestStatus.CONFIRMED);
             for (Object[] row : rows) {
                 Long eventId = (Long) row[0];
                 Long cnt = (Long) row[1];

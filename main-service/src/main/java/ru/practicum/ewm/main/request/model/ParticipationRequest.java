@@ -2,9 +2,9 @@ package ru.practicum.ewm.main.request.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import ru.practicum.main.commons.enums.RequestStatus;
-import ru.practicum.main.event.model.Event;
-import ru.practicum.main.user.model.User;
+import ru.practicum.ewm.main.commons.enums.RequestStatus;
+import ru.practicum.ewm.main.event.model.Event;
+import ru.practicum.ewm.main.user.model.User;
 
 import java.time.LocalDateTime;
 
